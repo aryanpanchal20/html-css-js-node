@@ -32,3 +32,23 @@ console.log("===================================================================
 
 arr.forEach((val)=>{console.log(val);})
 
+
+//1.for each function : to iterate array
+let narr=[1,2,3,4,5];
+
+narr.forEach((val,index,ar)=>{console.log(val,index,ar);})
+
+ console.log("=========================================================================");
+ //2.map function:original array refernece  --generate new array
+
+ let newarr=narr.map(val=>val*3)
+
+ console.log(newarr);
+
+ console.log("=========================================================================");
+
+ //3.filter function:to filter function based on condition
+
+ let oddarr=narr.filter(val=>val%2!=0);
+
+ console.log(oddarr);
