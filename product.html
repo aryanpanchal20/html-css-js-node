@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Objects</title>
+
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+ #searchBar {
+      margin-bottom: 20px;
+      padding: 8px 12px;
+      width: 280px;
+      font-size: 16px;
+    }
+   
+
+    .products-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .product {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      width: 220px;
+      background: #fafafa;
+    }
+
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .product button {
+      margin-top: 10px;
+      padding: 6px 10px;
+      cursor: pointer;
+      background: #2196f3;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+    }
+ </style>
+ <style>
+    .product-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .product {
+        width: 200px;
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .product img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+    }
+</style>
+
+</head>
+
+<body>
+
+    <input type="text" id="Searchbar" placeholder="Search here.......">
+
+    <div class="product-container" id="productcontainer"></div>
+
+<script>
+
+    const products = [
+        {
+            name: "Laptop",
+            price: 55000,
+            desc: "Powerful laptop for study and work",
+            img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853"
+        },
+
+        {
+            name: "Mobile Phone",
+            price: 25000,
+            desc: "Smartphone with a high quality camera",
+            img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
+        },
+
+        {
+            name: "Headphones",
+            price: 2000,
+            desc: "Wireless headphones with clear sound",
+            img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+        },
+
+        {
+            name: "Smart Watch",
+            price: 3500,
+            desc: "Smart watch with fitness tracking features",
+            img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+        },
+
+        {
+            name: "Keyboard",
+            price: 1500,
+            desc: "Comfortable keyboard for typing and gaming",
+            img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3"
+        }
+    ];
+
+    let container = document.getElementById("productcontainer");
+
+    function display(list)
+    {
+        container.innerHTML = "";
+
+        list.forEach((product) => {
+
+            const div = document.createElement("div");
+
+            div.classList.add("product");
+
+            div.innerHTML = `
+                <img src="${product.img}" width="200" height="150">
+
+                <h2>${product.name}</h2>
+
+                <h3>₹${product.price}</h3>
+
+                <p>${product.desc}</p>
+            `;
+
+            container.appendChild(div);
+
+        });
+    }
+
+    display(products);
+
+</script>
+
+</body>
+</html>
+```
