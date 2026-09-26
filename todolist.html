@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Todo</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #151525;
+            color: white;
+        }
+
+        /* TODO BOX */
+        .todo-box {
+            width: 450px;
+            margin: 80px auto;
+            padding: 30px;
+            background: #20203a;
+            border: 2px solid #8b5cf6;
+            border-radius: 20px;
+            box-shadow: 0 0 25px #8b5cf6;
+        }
+
+        .todo-title {
+            text-align: center;
+            font-size: 32px;
+            color: #c084fc;
+            margin-bottom: 25px;
+        }
+
+        /* INPUT */
+        #todo {
+            width: 65%;
+            padding: 13px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            background: #303052;
+            color: white;
+            font-size: 15px;
+        }
+
+        #todo::placeholder {
+            color: #aaa;
+        }
+
+        /* ADD BUTTON */
+        .add-btn {
+            padding: 13px 18px;
+            margin-left: 5px;
+            border: none;
+            border-radius: 10px;
+            background: #a855f7;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .add-btn:hover {
+            background: #c084fc;
+            transform: scale(1.05);
+        }
+
+        /* TODO LIST */
+        #todolist {
+            padding: 0;
+            margin-top: 25px;
+        }
+
+        #todolist li {
+            list-style: none;
+            background: #2b2b48;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            border-left: 4px solid #a855f7;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #todolist span {
+            flex: 1;
+            font-size: 16px;
+        }
+
+        /* DELETE BUTTON */
+        .delete-btn {
+            border: none;
+            border-radius: 8px;
+            padding: 8px 10px;
+            background: #ef4444;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* COMPLETE BUTTON */
+        .complete-btn {
+            border: none;
+            border-radius: 8px;
+            padding: 8px 10px;
+            background: #22c55e;
+            color: white;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover,
+        .complete-btn:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="todo-box">
+
+        <div class="todo-title">
+            ✨Todo List ✨
+        </div>
+
+        <input type="text" id="todo" placeholder="Enter your todo task...">
+
+        <button class="add-btn" onclick="addTodo()">
+            ADD
+        </button>
+
+        <ul id="todolist"></ul>
+
+    </div>
+
+
+    <script>
+
+        let todos = [];
+
+        function addTodo()
+        {
+            let task = document.getElementById("todo").value.trim();
+
+            if (task == "")
+            {
+                alert("Please enter a todo");
+                return;
+            }
+
+            todos.push({
+                id: Date.now(),
+                todo: task,
+                completed: false
+            });
+
+            document.getElementById("todo").value = "";
+
+            displayTodos();
+        }
+
+
+        function displayTodos()
+        {
+            let ul = document.getElementById("todolist");
+
+            ul.innerHTML = "";
+
+            todos.forEach((t) =>
+            {
+                const li = document.createElement("li");
+
+                li.innerHTML = `
+                    <span>${t.todo}</span>
+
+                    <button class="delete-btn">
+                        🗑
+                    </button>
+
+                    <button class="complete-btn">
+                        ✓
+                    </button>
+                `;
+
+                ul.appendChild(li);
+            });
+        }
+
+    </script>
+
+</body>
+</html>
+

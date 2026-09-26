@@ -60,6 +60,6 @@ narr.forEach((val,index,ar)=>{console.log(val,index,ar);})
  let sum=narr.reduce((currentval,nextval)=>{return currentval*nextval});
  console.log(sum);
 
- //all three at once
+ 
 
  
