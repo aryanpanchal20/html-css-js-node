@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <h1>TEXT CONVERTER</h1>
+        <textarea id="text" rows="15" cols="40"></textarea>
+        <br>
+        <button onclick="convertoupper()">UPPERCASE</button>
+        <button onclick="converttolower()">LOWERCASE</button>
+        <button onclick="converttocapatilize()">CAPITALIZE</button>
+        <button>WORDCOUNT</button>
+        
+    </div>
+
+<script>
+    let text=document.getElementById("text")
+
+    function convertoupper()
+    {
+        let a=text.value;
+        text.value=a.toUpperCase();
+    }
+
+    function converttolower()
+    {
+        let a=text.value;
+        text.value=a.toLowerCase();
+    }
+
+    function converttocapatilize()
+    {
+        let a =text.value;
+        text.value=a.Capatalize()
+    }
+
+</script>
+
+    
+</body>
+</html>

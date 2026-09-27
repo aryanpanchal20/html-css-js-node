@@ -95,80 +95,95 @@
 
 <body>
 
-    <input type="text" id="Searchbar" placeholder="Search here.......">
+    <input type="text" id="searchbar" placeholder="Search here.......">
 
     <div class="product-container" id="productcontainer"></div>
 
 <script>
 
-    const products = [
-        {
-            name: "Laptop",
-            price: 55000,
-            desc: "Powerful laptop for study and work",
-            img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853"
-        },
-
-        {
-            name: "Mobile Phone",
-            price: 25000,
-            desc: "Smartphone with a high quality camera",
-            img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
-        },
-
-        {
-            name: "Headphones",
-            price: 2000,
-            desc: "Wireless headphones with clear sound",
-            img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
-        },
-
-        {
-            name: "Smart Watch",
-            price: 3500,
-            desc: "Smart watch with fitness tracking features",
-            img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30"
-        },
-
-        {
-            name: "Keyboard",
-            price: 1500,
-            desc: "Comfortable keyboard for typing and gaming",
-            img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3"
-        }
-    ];
-
-    let container = document.getElementById("productcontainer");
-
-    function display(list)
+   const products = [
     {
-        container.innerHTML = "";
+        name: "Laptop",
+        price: 55000,
+        desc: "Powerful laptop for study and work",
+        img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853"
+    },
 
-        list.forEach((product) => {
+    {
+        name: "Mobile Phone",
+        price: 25000,
+        desc: "Smartphone with a high quality camera",
+        img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
+    },
 
-            const div = document.createElement("div");
+    {
+        name: "Headphones",
+        price: 2000,
+        desc: "Wireless headphones with clear sound",
+        img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+    },
 
-            div.classList.add("product");
+    {
+        name: "Smart Watch",
+        price: 3500,
+        desc: "Smart watch with fitness tracking features",
+        img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+    },
 
-            div.innerHTML = `
-                <img src="${product.img}" width="200" height="150">
-
-                <h2>${product.name}</h2>
-
-                <h3>₹${product.price}</h3>
-
-                <p>${product.desc}</p>
-            `;
-
-            container.appendChild(div);
-
-        });
+    {
+        name: "Keyboard",
+        price: 1500,
+        desc: "Comfortable keyboard for typing and gaming",
+        img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3"
     }
+];
 
-    display(products);
+let container = document.getElementById("productcontainer");
+
+function display(list)
+{
+    container.innerHTML = "";
+
+    list.forEach((product) => {
+
+        const div = document.createElement("div");
+
+        div.classList.add("product");
+
+        div.innerHTML = `
+            <img src="${product.img}" width="200" height="150">
+
+            <h2>${product.name}</h2>
+
+            <h3>₹${product.price}</h3>
+
+            <p>${product.desc}</p>
+        `;
+
+        container.appendChild(div);
+    });
+}
+
+display(products);
+
+const searchbar = document.getElementById("searchbar");
+
+searchbar.addEventListener("input", () => {
+
+    let search = searchbar.value.toLowerCase().trim();
+
+    let filtered = products.filter((product) => {
+
+        return product.name.toLowerCase().includes(search) ||
+               product.desc.toLowerCase().includes(search);
+
+    });
+
+    display(filtered);
+});
 
 </script>
 
 </body>
 </html>
-```
+
