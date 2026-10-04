@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+</head>
+
+<body>
+
+    <h1 onclick="alert('clicked')">hello</h1>
+
+    <h1 ondblclick="alert('double clicked')">double click</h1>
+
+    <div id="box"
+        onmouseover="getOver()"
+        onmouseout="getOut()"
+        onmousedown="getMouseDown()"
+        oncopy="getCopy()"
+        oncut="getCut()">
+
+        <input type="text"
+            placeholder="Enter your name here...."
+            oncopy="getCopy()"
+            oncut="getCut()">
+
+    </div>
+
+    <script>
+
+        const ele = document.getElementById("box");
+
+        function getOver() {
+            ele.style.backgroundColor = "orange";
+        }
+
+        function getOut() {
+            ele.style.backgroundColor = "blue";
+        }
+
+        function getMouseDown() {
+            ele.style.backgroundColor = "purple";
+        }
+
+        function getCopy() {
+            alert("Text copied");
+        }
+
+        function getCut() {
+            alert("Text cut");
+        }
+
+    </script>
+
+</body>
+
+</html>
